@@ -1,33 +1,41 @@
 class Solution {
     public TreeNode deleteNode(TreeNode root, int key) {
-    if(root == null){
-        return null;
-    }
-    if(key < root.val){
-        root.left = deleteNode(root.left, key);
-    }else if(key > root.val){
-        root.right = deleteNode(root.right, key);
-    }else{
-        if(root.left == null){
-            return root.right;
-        }else if(root.right == null){
-            return root.left;
+        if(root==null) return null;
+        if(key>root.val){
+            root.right = deleteNode(root.right, key);
+            return root;
         }
-        
-        
-        root.val = findMin(root.right);
-        root.right = deleteNode(root.right, root.val);
-    }
-    return root;
+        if(key<root.val){
+            root.left = deleteNode(root.left, key);
+            return root;
+        }
+        else{
+            if(root.left!=null && root.right!=null){
+                int maxv = findMax(root.left);
+                root.val = maxv;
+                root.left= deleteNode(root.left, maxv);
+                return root;
+            }
+            else if(root.left!=null){
+                TreeNode temp = root.left;
+                root.left = null;
+                return temp;
+            }
+            else if(root.right!=null){
+                TreeNode temp = root.right;
+                root.right = null;
+                return temp;
+            }
+            else 
+                return null;
+        }
 }
 
-private int findMin(TreeNode node){
-    int valued = node.val;
-    while(node.left != null){
-        valued = node.left.val;
-        node = node.left;
+    private int findMax(TreeNode node){
+       if(node.right!=null)
+           return findMax(node.right);
+        else 
+            return node.val;
     }
-    return valued;
-}
     
 }
