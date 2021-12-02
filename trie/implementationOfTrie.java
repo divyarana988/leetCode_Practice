@@ -13,7 +13,7 @@ public class implementationOfTrie {
 
         private Node root = null;
 
-        public Trie() {
+        public implementationOfTrie() {
             root = new Node();
         }
 

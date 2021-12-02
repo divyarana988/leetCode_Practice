@@ -12,7 +12,7 @@ class designAddAndSearchStructure {
 
     private Node root = null;
 
-    public WordDictionary() {
+    public designAddAndSearchStructure() {
         root = new Node();
     }
 
