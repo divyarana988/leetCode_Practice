@@ -1,3 +1,5 @@
+   
+import java.util.*;
    public static int[] nextGreaterElement(int[] nums, int[] query) {
         Stack<Integer> st = new Stack<>();
         int[] res = new int[query.length];

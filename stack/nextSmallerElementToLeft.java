@@ -1,3 +1,4 @@
+import java.util.*;
 public class nextSmallerElementToLeft {
     public int[] sol(int[] arr) {
         Stack<Integer> st = new Stack<>();
